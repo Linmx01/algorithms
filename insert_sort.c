@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define ARRAY_SIZE(array) (sizeof(array)/sizeof(array[0]))
+
 void InsertSort(int array[],int num){
  
   int i,j;
@@ -10,10 +12,10 @@ void InsertSort(int array[],int num){
       if(array[j]>key){
         array[j+1]=array[j];
       }else{
-        array[j+1]=key;
         break;
       }
     }
+    array[j+1]=key;
   }
    
 }
@@ -32,16 +34,15 @@ void PrintArray(int array[],int num){
 
 int main(){
 
-  int num		= 10;
   int array[10] 	= {3,92,33,6,2,33,50,41,32,70};
 
   printf("array to be sort:\n");
-  PrintArray(array,num);
+  PrintArray(array,ARRAY_SIZE(array));
 
-  InsertSort(array,num);
+  InsertSort(array,ARRAY_SIZE(array));
 
   printf("after sort:\n");
-  PrintArray(array,num);
+  PrintArray(array,ARRAY_SIZE(array));
 
   return 0;
 
