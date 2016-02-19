@@ -8,12 +8,8 @@ void InsertSort(int array[],int num){
 
   for(i=1;i<num;i++){
     int key = array[i];
-    for(j=i-1;j>=0;j--){
-      if(array[j]>key){
-        array[j+1]=array[j];
-      }else{
-        break;
-      }
+    for(j=i-1;j>=0&&array[j]>key;j--){
+      array[j+1]=array[j];
     }
     array[j+1]=key;
   }
